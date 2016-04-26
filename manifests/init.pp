@@ -13,5 +13,6 @@
 class test {
   notify { "Using test class.": }
 
+  #Install by default.
   include test::install
 }
