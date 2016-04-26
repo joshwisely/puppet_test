@@ -13,6 +13,14 @@
 class test::install {
   notify { "Installing!": }
   
+  #Not sure why but selinux needs this.
+  file { '/opt/puppetlabs/server/data/puppetserver':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0666',
+  }
+  
   #Set selinux to permissive.
   class { 'selinux':
     mode => 'permissive'
