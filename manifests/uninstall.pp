@@ -30,12 +30,31 @@ class test::uninstall {
   }
   
   #Not sure why but selinux needs this.
-    file { '/opt/puppetlabs/server/data':
+  file { '/opt':
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
     mode   => '0666',
   }
+  file { '/opt/puppetlabs':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0666',
+  }
+  file { '/opt/puppetlabs/server':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0666',
+  }
+  file { '/opt/puppetlabs/server/data':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0666',
+  }
+  
   
   #Set selinux back to enforcing.
   class { 'selinux':
