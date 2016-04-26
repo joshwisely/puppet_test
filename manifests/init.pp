@@ -1,3 +1,3 @@
 class test {
-  notify {"Using test class."},
+  notify { "Using test class.": }
 }
