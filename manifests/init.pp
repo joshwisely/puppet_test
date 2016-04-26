@@ -13,4 +13,5 @@
 class test {
   notify { "Using test class.": }
 
+  include test::install
 }

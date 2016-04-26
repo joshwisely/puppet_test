@@ -35,22 +35,19 @@ class test::install {
     mode => 'permissive'  
   }
   
-  #Remove repo package.
+  #Make sure git exists.
   package { 'git':
     ensure => installed,
   }
 
-  class{ 'nginx':
-    manage_repo => true,
-    package_source => 'nginx-mainline'
-  }
-  
+  #Clone data from git repo.
   vcsrepo { '/var/test':
     ensure   => present,
     provider => git,
     source   => 'https://github.com/puppetlabs/exercise-webpage.git',
   }
 
+  #Ensure file permissions are set correctly.
   file { '/var/test':
     ensure => 'directory',
     owner  => 'root',
@@ -58,7 +55,14 @@ class test::install {
     mode   => '0655',
     recurse => true
   }
-    
+
+  #Setup nginx to manage it's own repo.
+  class{ 'nginx':
+    manage_repo => true,
+    package_source => 'nginx-mainline'
+  }
+  
+  #Setup vhost for test website.    
   nginx::resource::vhost { 'test':
     ensure               => present,
     server_name          => ['test'],
