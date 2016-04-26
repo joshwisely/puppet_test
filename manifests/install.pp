@@ -74,7 +74,8 @@ class test::install {
     group => 'root',
     mode => '0666',
     #content => epp('index.html.epp'),
-    content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
+    #content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
+    source => 'https://github.com/puppetlabs/exercise-webpage/blob/master/index.html',
   }
 
 }
