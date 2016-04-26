@@ -21,21 +21,17 @@ class test::uninstall {
   
   #Remove package.
   package { 'nginx':
-    ensure => absent,
+    ensure => purged,
   }
   
   #Remove repo package.
   package { 'epel-release':
-    ensure => absent,
+    ensure => purged,
   }
 
-  #Remove git dependant packages first.
-  package { 'perl-Git':
-    ensure => absent,
-  }
   #Remove git package.
   package { 'git':
-    ensure => absent,
+    ensure => purged,
   }
   
   #Not sure why but selinux needs this.
