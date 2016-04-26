@@ -45,6 +45,12 @@ class test::install {
     package_source => 'nginx-mainline'
   }
   
+  vcsrepo { '/var/test':
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/puppetlabs/exercise-webpage.git',
+  }
+
   file { '/var/test':
     ensure => 'directory',
     owner  => 'root',
@@ -52,20 +58,6 @@ class test::install {
     mode   => '0655',
     recurse => true
   }
-  
-  vcsrepo { '/var/test':
-    ensure   => present,
-    provider => git,
-    source   => 'https://github.com/puppetlabs/exercise-webpage.git',
-  }
-  
- # file { '/var/test/index.html':
- #   owner => 'root',
- #   group => 'root',
- #   mode => '0655',
- #   #content => epp('index.html.epp'),
- #   content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>\n",
- # }
     
   nginx::resource::vhost { 'test':
     ensure               => present,
