@@ -1,1 +1,1 @@
-# puppet_test
+Tech challange for Puppet.
