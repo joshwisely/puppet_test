@@ -31,7 +31,7 @@ Tech challange for Puppet.
 	- In the `Value` box enter `.*`.
 	- Click `Add rule`.
 	- Click `Commit 1 change`.
-- Add test class to newly created group.
+- Add the test class to newly created group.
 	- On the `Classification` page, click the newly created group.
 	- Click on the `Classes` tab.
 	- Type in `Test` in the box.
