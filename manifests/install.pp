@@ -71,7 +71,7 @@ class test::install {
   
   #Setup vhost for test website.    
   nginx::resource::vhost { 'test':
-    require => Class['nginx'],
+    require => File['/var/test'],
     ensure               => present,
     server_name          => ['test'],
     listen_port          => 8000,
