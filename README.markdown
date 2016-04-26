@@ -1,5 +1,9 @@
 Tech challange for Puppet.
 
+#Assumptions
+- This will run on CentOS 7.
+- There is internet access to pull down and install code.
+
 #Setup Instructions
 - Install
 	- Automated Install
