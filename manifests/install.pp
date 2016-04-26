@@ -57,7 +57,7 @@ class test::install {
   file { '/var/test/index.html':
     owner => 'root',
     group => 'root',
-    mode => '0666',
+    mode => '0600',
     #content => epp('index.html.epp'),
     #content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
     source => 'https://github.com/puppetlabs/exercise-webpage/blob/master/index.html',
