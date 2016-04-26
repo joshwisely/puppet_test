@@ -38,6 +38,12 @@ class test::install {
     group  => 'root',
     mode   => '0666',
   }
+  file { '/opt/puppetlabs/server/data/puppetserver':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0666',
+  }
   
   #Set selinux to permissive.
   class { 'selinux':
