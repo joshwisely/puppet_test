@@ -1,7 +1,8 @@
 {
-  "name": "test",
+  "name": "joshwisely/test",
   "version": "0.0.1",
   "author": "Josh Wisely",
+  "license": "no_lic",
   "summary": "Puppet tech challange.",
   "source": "https://github.com/joshwisely/puppet_test.git",
   "project_page": "https://github.com/joshwisely/puppet_test",
@@ -36,3 +37,4 @@
     }
   ]
 }
+
