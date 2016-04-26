@@ -28,7 +28,11 @@ class test::uninstall {
   package { 'epel-release':
     ensure => absent,
   }
-  
+
+  #Remove git dependant packages first.
+  package { 'perl-git':
+    ensure => absent,
+  }
   #Remove git package.
   package { 'git':
     ensure => absent,
