@@ -1,3 +1,15 @@
+# Class: test::install
+#
+# This module installs test
+#
+# Parameters: none
+#
+# Actions:
+#
+# Requires: see Modulefile
+#
+# Sample Usage:
+#
 class test::install {
   notify { "Installing!": }
   
