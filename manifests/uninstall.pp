@@ -30,9 +30,10 @@ class test::uninstall {
   }
    
   #Set selinux back to enforcing.
-  #class { 'selinux':
-  #  mode => 'enforcing'
-  #}
+  class { 'selinux':
+    mode => 'enforcing'
+    #modules_dir => ''
+  }
   
   #Remove files.
   file {'remove_directory':
