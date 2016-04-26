@@ -8,7 +8,8 @@
   "project_page": "https://github.com/joshwisely/puppet_test",
   "issues_url": "https://github.com/joshwisely/puppet_test/issues",
   "dependencies": [
-    {"name":"jfryman-nginx","version_requirement":">= 0.3.0"}
+    {"name":"jfryman-nginx","version_requirement":">= 0.3.0"},
+    {"name":"spiette-selinux","version_requirement":">= 0.5.4"}
   ],
   "requirements": [
     {

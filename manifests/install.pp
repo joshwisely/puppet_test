@@ -13,29 +13,36 @@
 class test::install {
   notify { "Installing!": }
   
-  class{'nginx':
-    manage_repo => true,
-    package_source => 'nginx-mainline'
+  #Set selinux to permissive.
+  #UI set to enforcing.
+  include selinux
+  class { 'selinux':
+    mode => 'permissive'
   }
+  
+  #class{'nginx':
+  #  manage_repo => true,
+  #  package_source => 'nginx-mainline'
+  #}
   
   file { '/var/test':
     ensure => 'directory',
     owner  => 'root',
-    group  => 'wheel',
-    mode   => '0750',
+    group  => 'root',
+    mode   => '0666',
   }
   
-  nginx::resource::vhost { 'test':
-    ensure               => present,
-    server_name          => ['test'],
-    listen_port          => 8000,
-    www_root             => '/var/test',
-  }
+  #nginx::resource::vhost { 'test':
+  #  ensure               => present,
+  #  server_name          => ['test'],
+  #  listen_port          => 8000,
+  #  www_root             => '/var/test',
+  #}
   
   file { '/var/test/index.html':
     owner => 'root',
     group => 'root',
-    mode => '0644',
+    mode => '0666',
     #content => epp('index.html.epp'),
     content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
   }
