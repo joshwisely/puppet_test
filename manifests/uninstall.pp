@@ -30,7 +30,7 @@ class test::uninstall {
   }
 
   #Remove git dependant packages first.
-  package { 'perl-git':
+  package { 'perl-Git':
     ensure => absent,
   }
   #Remove git package.
