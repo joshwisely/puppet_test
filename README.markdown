@@ -1,12 +1,10 @@
-# test #
-
 Tech challange for Puppet.
 
-Setup Instructions.
+#Setup Instructions
 1. Install
 	1. Automated Install
-		1. wget https://github.com/joshwisely/puppet_test/archive/v0.0.1.tar.gz -O ./joshwisely-test_0.0.1.tar.gz
-		2. puppet module install ./joshwisely-test_0.0.1.tar.gz
+		1. wget https://github.com/joshwisely/puppet_test/archive/v0.0.2.tar.gz -O ./joshwisely-test_0.0.2.tar.gz
+		2. puppet module install ./joshwisely-test_0.0.2.tar.gz
 	2. Git Clone Install
 		1. Install pre-reqs.
 			`puppet module install jfryman/nginx`
