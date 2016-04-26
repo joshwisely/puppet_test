@@ -64,6 +64,5 @@ class test::install {
     server_name          => ['test'],
     listen_port          => 8000,
     www_root             => '/var/test',
-    index_files           => [ 'index.php' ],
   }
 }
