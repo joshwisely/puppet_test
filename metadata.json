@@ -9,7 +9,8 @@
   "issues_url": "https://github.com/joshwisely/puppet_test/issues",
   "dependencies": [
     {"name":"jfryman-nginx","version_requirement":">= 0.3.0"},
-    {"name":"spiette-selinux","version_requirement":">= 0.5.4"}
+    {"name":"spiette-selinux","version_requirement":">= 0.5.4"},
+    {"name":"puppetlabs-vcsrepo","version_requirement":">= 1.3.2"}
   ],
   "requirements": [
     {

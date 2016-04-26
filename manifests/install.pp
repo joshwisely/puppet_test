@@ -45,22 +45,29 @@ class test::install {
     owner  => 'root',
     group  => 'root',
     mode   => '0655',
+    recurse => true
   }
   
+  vcsrepo { '/var/test':
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/puppetlabs/exercise-webpage.git',
+  }
+  
+  
+ # file { '/var/test/index.html':
+ #   owner => 'root',
+ #   group => 'root',
+ #   mode => '0655',
+ #   #content => epp('index.html.epp'),
+ #   content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
+ # }
+    
   nginx::resource::vhost { 'test':
     ensure               => present,
     server_name          => ['test'],
     listen_port          => 8000,
     www_root             => '/var/test',
+    index_files           => [ 'index.php' ],
   }
-  
-  file { '/var/test/index.html':
-    owner => 'root',
-    group => 'root',
-    mode => '0655',
-    #content => epp('index.html.epp'),
-    content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
-    #source => 'https://github.com/puppetlabs/exercise-webpage/blob/master/index.html',
-  }
-
 }
