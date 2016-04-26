@@ -36,7 +36,8 @@ class test::install {
     owner => 'root',
     group => 'root',
     mode => '0644',
-    content => epp('index.html.epp'),
+    #content => epp('index.html.epp'),
+    content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
   }
 
 }
