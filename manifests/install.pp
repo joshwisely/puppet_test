@@ -18,20 +18,25 @@ class test::install {
     ensure => 'directory',
   }
   file { '/opt/puppetlabs':
+    require => File['/opt'],
     ensure => 'directory',
   }
   file { '/opt/puppetlabs/server':
+    require => File['/opt/puppetlabs'],
     ensure => 'directory',
   }
   file { '/opt/puppetlabs/server/data':
+    require => File['/opt/puppetlabs/server'],
     ensure => 'directory',
   }
   file { '/opt/puppetlabs/server/data/puppetserver':
+    require => File['/opt/puppetlabs/server/data'],
     ensure => 'directory',
   }
   
   #Set selinux to permissive.
   class { 'selinux':
+    require => File['/opt/puppetlabs/server/data/puppetserver'],
     mode => 'permissive'  
   }
   
@@ -42,6 +47,7 @@ class test::install {
 
   #Clone data from git repo.
   vcsrepo { '/var/test':
+    require => Package['git'],
     ensure   => present,
     provider => git,
     source   => 'https://github.com/puppetlabs/exercise-webpage.git',
@@ -49,6 +55,7 @@ class test::install {
 
   #Ensure file permissions are set correctly.
   file { '/var/test':
+    require => Vcsrepo['/var/test'],
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
@@ -64,6 +71,7 @@ class test::install {
   
   #Setup vhost for test website.    
   nginx::resource::vhost { 'test':
+    require => Class['nginx'],
     ensure               => present,
     server_name          => ['test'],
     listen_port          => 8000,
