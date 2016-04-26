@@ -30,7 +30,7 @@ class test::uninstall {
   }
   
   #Not sure why but selinux needs this.
-  file { '/opt/puppetlabs/server/data/puppetserver':
+    file { '/opt/puppetlabs/server/data':
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
