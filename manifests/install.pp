@@ -15,7 +15,6 @@ class test::install {
   
   #Set selinux to permissive.
   #UI set to enforcing.
-  include selinux
   class { 'selinux':
     mode => 'permissive'
   }

@@ -19,13 +19,6 @@ class test::uninstall {
     mode => 'enforcing'
   }
   
-  file { '/var/test':
-    ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0666',
-  }
-  
   file {'remove_directory':
     ensure  => absent,
     path    => '/var/test',
