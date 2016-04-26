@@ -30,7 +30,6 @@ class test::uninstall {
   }
    
   #Set selinux back to enforcing.
-  include selinux
   class { 'selinux':
     mode => 'enforcing'
   }
