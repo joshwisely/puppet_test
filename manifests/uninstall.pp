@@ -29,6 +29,11 @@ class test::uninstall {
     ensure => absent,
   }
   
+  #Remove git package.
+  package { 'git':
+    ensure => absent,
+  }
+  
   #Not sure why but selinux needs this.
   file { '/opt':
     ensure => 'directory',

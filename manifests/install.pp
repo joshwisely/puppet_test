@@ -35,6 +35,11 @@ class test::install {
     mode => 'permissive'  
   }
   
+  #Remove repo package.
+  package { 'git':
+    ensure => installed,
+  }
+
   class{ 'nginx':
     manage_repo => true,
     package_source => 'nginx-mainline'
@@ -54,13 +59,12 @@ class test::install {
     source   => 'https://github.com/puppetlabs/exercise-webpage.git',
   }
   
-  
  # file { '/var/test/index.html':
  #   owner => 'root',
  #   group => 'root',
  #   mode => '0655',
  #   #content => epp('index.html.epp'),
- #   content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>",
+ #   content => "<!DOCTYPE html><html><body><p>It works!</p></body></html>\n",
  # }
     
   nginx::resource::vhost { 'test':
