@@ -1,0 +1,38 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "author": "Josh Wisely",
+  "summary": "Puppet tech challange.",
+  "source": "https://github.com/joshwisely/puppet_test.git",
+  "project_page": "https://github.com/joshwisely/puppet_test",
+  "issues_url": "https://github.com/joshwisely/puppet_test/issues",
+  "dependencies": [
+    {"name":"jfryman-nginx","version_requirement":">= 0.3.0"}
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease":[
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "14.04",
+        "12.04"
+      ]
+    }
+  ]
+}
